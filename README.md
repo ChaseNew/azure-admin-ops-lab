@@ -1,47 +1,134 @@
-**Chase Newman's Azure Portfolio Project**
-This project demonstrates hands-on experience gained while learning with Microsoft Azure. I designed and deployed a secure, well-structured cloud environment that showcases core Azure administrative and operational skills.
+# Azure Secure Virtual Network Lab
 
-The architecture includes the creation and management of Resource Groups, Virtual Networks, subnets, Network Security Groups, public and private virtual machines, monitoring and alert rules, Log Analytics, and Role-Based Access Control (RBAC).
+This project demonstrates hands-on experience building and documenting a secure cloud environment using Microsoft Azure. The goal of the project was to design and deploy a realistic Azure infrastructure while applying core cloud administration, networking, security, monitoring, and operational practices.
 
-Throughout the project, I applied cloud best practices with a strong focus on cost optimization, security, compliance, monitoring, and the principle of least privilege. Design decisions were made to reflect real-world operational environments rather than simple lab configurations.
+The environment was designed to resemble a small production-style deployment rather than a basic lab environment.
 
-**Architecture Diagram:**
+---
+
+# Architecture Overview
+
+The deployed architecture includes the following Azure components:
+
+- Resource Group
+- Virtual Network (VNet)
+- Subnets
+- Network Security Groups (NSGs)
+- Web Virtual Machine
+- Administrative Virtual Machine
+- Public IP configuration
+- Azure Monitor
+- Log Analytics Workspace
+- Alert Rules
+- Role-Based Access Control (RBAC)
+
+These components work together to demonstrate a secure and monitored Azure virtual machine environment.
+
+---
+
+# Architecture Diagram
+
+![Architecture Diagram](architecture/architecture-diagram.png)
+
+---
+
+# What This Project Demonstrates
+
+This project highlights several core Azure administration and cloud engineering skills:
+
+- Virtual Network architecture and subnet segmentation
+- Network Security Group configuration
+- Virtual Machine deployment and access control
+- Role-Based Access Control scoped to specific resources
+- Azure Monitor and Log Analytics configuration
+- Alert rule configuration for system monitoring
+- Backup and recovery planning
+- Basic operational troubleshooting and monitoring
+
+---
+
+# Key Design Decisions
+
+## Cost Optimization
+
+Cost awareness is an important part of cloud operations. The following steps were taken to minimize unnecessary cloud spending:
+
+- Use of **Standard NV4as_v4** virtual machines which support hibernation
+- Virtual machines were **hibernated when not in use** to reduce compute charges
+- VMs were **deallocated after testing** to prevent additional costs
+
+These practices demonstrate how cloud resources can be managed efficiently without impacting the overall design of the environment.
+
+---
+
+## Security
+
+Security considerations were incorporated throughout the architecture:
+
+- SSH access restricted to a trusted IP address
+- Separate administrative access controls for each VM
+- Network Security Groups configured with **deny-by-default inbound rules**
+- Only required ports are allowed through NSG rules
+- RBAC implemented using the **principle of least privilege**
+
+These measures help reduce the attack surface and ensure administrative access is tightly controlled.
+
+---
+
+## Monitoring and Operations
+
+Operational visibility was implemented using Azure monitoring services:
+
+- **Azure Monitor** for platform monitoring
+- **Log Analytics Workspace** for log collection and analysis
+- Alert rules configured for:
+  - CPU utilization thresholds
+  - VM heartbeat monitoring
+  - Availability monitoring
+
+These alerts help administrators quickly detect performance or availability issues.
+
+---
+
+# Deployment Process
+
+The environment was deployed using the following workflow:
+
+1. Create Resource Group
+2. Create Virtual Network and Subnets
+3. Configure Network Security Groups
+4. Deploy Virtual Machines
+5. Enable monitoring with Azure Monitor and Log Analytics
+6. Configure alert rules
+7. Enable backup configuration
+8. Configure RBAC access permissions
+
+Infrastructure deployment is also represented using Infrastructure-as-Code with Bicep templates included in this repository.
+
+---
+
+# Lessons Learned
+
+This project reinforced several important cloud engineering concepts.
+
+First, it demonstrated how individual Azure services must be carefully integrated to avoid gaps in security, monitoring, or access control.
+
+Second, it highlighted how proper architecture design can simplify ongoing operations by relying on Azure’s native automation and monitoring tools.
+
+Finally, it emphasized the importance of cost management in cloud environments, particularly when working with virtual machines and persistent resources.
+
+---
+
+# Technologies Used
+
+- Microsoft Azure
+- Azure Virtual Machines
+- Azure Virtual Network
+- Azure Monitor
+- Log Analytics
+- Role-Based Access Control (RBAC)
+- Bicep (Infrastructure as Code)
 
 
-What This Project Demonstrates:
--VNet, subnets, NSGs
--VM deployment and access controls
--RBAC scoped to a single VM
--Azure Monitor + Log Analytics
--Alerts + basic incident response
--Backup + recovery
 
-**Key Decisions**
-Cost Optimization:
-use of Standard NV4as V4 (allows hibernation)
-VMs were hibernated when not in use to reduce compute charges while preserving VM state for faster resume.
-VMs were stopped after testing to prevent any additional costs.
-
-Security:
-SSH is restricted to my IP,
-separate SSH keys per tier,
-least-privilege RBAC.
-
-Operations:
-Alerts are configured for CPU thresholds and heartbeat monitoring.
-allow rules created to allow only nessesary ports and deny all else.
-
-Deployment Steps:
-Create RG
-Create VNet/subnets
-Create NSGs
-Deploy VMs
-Enable monitoring
-Set alerts
-Enable backups
-Configure RBAC
-
-Lessons Learned
-Through this project, I learned how critical it is to properly configure and integrate Azure services to prevent gaps in security and access control. I gained a stronger understanding of how individual Azure components work together as part of a unified cloud environment rather than as standalone services.
-
-I also learned how Azure’s native tooling can significantly reduce operational overhead by limiting the need for manual deployment, configuration, and ongoing management when cloud resources are designed and managed correctly.
+# Repository Structure
