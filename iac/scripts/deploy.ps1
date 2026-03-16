@@ -1,5 +1,6 @@
 # deploy.ps1
-# Deploys the Azure infrastructure defined in the Bicep template.
+# This script logs into Azure, creates a resource group,
+# and deploys the Bicep template using parameters.json.
 
 # Login to Azure
 Connect-AzAccount
