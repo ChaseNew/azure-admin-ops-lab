@@ -128,6 +128,14 @@ Finally, it emphasized the importance of cost management in cloud environments, 
 - Role-Based Access Control (RBAC)
 - Bicep (Infrastructure as Code)
 
+---
+
+### Parameters File
+
+The `parameters.json` file provides values used by the Bicep template during deployment.
+
+Sensitive values such as passwords should not be committed to source control. Replace placeholder values before deployment.
+
 
 
 # Repository Structure
