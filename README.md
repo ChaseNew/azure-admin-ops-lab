@@ -28,7 +28,7 @@ These components work together to demonstrate a secure and monitored Azure virtu
 
 # Architecture Diagram
 
-![Architecture Diagram](architecture/Project-Diagram.png)
+![Architecture](architecture/Project-Diagram.png)
 
 ---
 
