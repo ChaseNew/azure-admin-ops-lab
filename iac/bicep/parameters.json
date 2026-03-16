@@ -1,1 +1,21 @@
-
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "vnetName": {
+      "value": "portfolio-vnet"
+    },
+    "webVmName": {
+      "value": "web-vm"
+    },
+    "adminVmName": {
+      "value": "admin-vm"
+    },
+    "adminUsername": {
+      "value": "azureadmin"
+    },
+    "adminPassword": {
+      "value": "REPLACE_WITH_PASSWORD"
+    }
+  }
+}
